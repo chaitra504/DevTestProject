@@ -1,0 +1,46 @@
+
+<form >
+    <div class="container">
+
+        <div class="row">
+             <div class="col-md-4" *ngIf="isGridView">
+                <span style="font-weight: bold; font-size: 18px;"> Today's Hourly Temprature</span>
+                <div style="height: 380px; overflow: auto; display: flex;"> 
+                    <table #tempgrid  class="table table-bordered table-dark table-hover table-sm" [width]="100" [cellSpacing]="0">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                    Daytime
+                </th>
+                <th class="th-sm">
+                    Temprature
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+        <tr *ngFor="let item of records">
+            <td > {{item.hourName | date:'shortTime'}} </td>
+            <td > {{item.hourTemp}} </td>
+        </tr>
+        </tbody>
+    
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <apphighcharts-chart [datewiseTemprature]="dayTempMap" 
+                [datewiseTempTomrw]="tommorowTempMap" #appweather
+               ></apphighcharts-chart>
+            </div>
+    
+        </div>
+        <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2" style="text-align: right;">
+         
+        </div>
+       </div>
+    </div>
+ 
+</form>
+

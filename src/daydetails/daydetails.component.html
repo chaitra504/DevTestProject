@@ -1,0 +1,54 @@
+
+<button routerLink="/" style="display: block; width: auto;  align-items: end;">Home</button> 
+
+  <div>
+    <span>Details</span>
+  </div>
+      <div class="form-group">
+        <label for="lat">Latitude:</label>
+       <input id="lat" type="text" [value]="latitude" disabled/>
+      </div>
+      <div class="form-group">
+        <label for="longitude">Longitude:</label>
+        <input id="lat" type="text" [value]="longitude" disabled/>
+      </div>
+      <div class="form-group">
+        <label for="timezone">Timezone:</label>
+        <input id="timezone" type="text" [value]="timezone" disabled/>
+      </div>
+      <!-- <div class="form-group">
+        <label for="temp">Temprature:</label>
+        <input id="temp" type="text" [value]="temprature" disabled/>
+      </div>
+      <div class="form-group">
+        <label for="wind">Wind Speed:</label>
+        <input id="wind" type="text" [value]="windspeed" disabled/>
+      </div> -->
+      <form  [formGroup]="dailyForm" (ngSubmit)="onsubmit(dailyForm)">
+        <div>
+          <label>
+            City Longitude:
+            <input formControlName="cityLongitude" placeholder="City Longitude">
+          </label>
+        </div>
+        <div>
+          <label>
+            City Latitude:
+            <input formControlName="cityLatitude" placeholder="City Latitude">
+          </label>
+        </div>
+        <span>OR</span>
+        <div>
+          <label>
+            City Name:
+            <input formControlName="cityName" placeholder="City Name">
+          </label>
+        </div>
+        <button type="submit">Display Chart</button>
+        
+        <apphighcharts-chart  [datewiseTemprature]="dayTempMap" 
+                [datewiseTempTomrw]="tommorowTempMap" 
+               ></apphighcharts-chart>
+        
+      </form>
+

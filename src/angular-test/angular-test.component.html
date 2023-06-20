@@ -1,0 +1,24 @@
+
+<div>
+    {{text}}
+    
+</div>
+<form id="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<div class="form-group">
+<label class="center-block">Name:
+    <input class="form-control" formControlName="name">
+</label>
+<label class="center-block" >Email:
+    <input class="form-control" formControlName="email">
+</label>
+<label class="center-block" appDirectiveComposition>Mobile:
+    <input class="form-control" formControlName="mobile">
+</label>
+
+</div>
+<div class="form-group">
+    <!--appHighlight - this directive takes input parameter-->
+    <span appHighlight highlightText="30px">Hello XYZ</span>
+</div>
+<button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Save</button>
+</form>
